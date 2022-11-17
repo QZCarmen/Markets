@@ -184,7 +184,7 @@
 
 h3, .h3{
   display: flex;
-  font-size: 800px;
+  font-size: 14px;
   width: fit-content;
   flex-direction: row;
   align-items: center;
