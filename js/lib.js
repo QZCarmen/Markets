@@ -120,7 +120,7 @@ function isFound(found){
 function generateMenu(username){
     return`
     <li id="events-text">
-    <a href="#"  >
+    <a href="index.html"  >
         <i class="fa fa-calendar fa-2x"></i>
         <span class="events-text">Events</span>
     </a>
@@ -156,18 +156,18 @@ function generateMenu(username){
 function isStatus(appliable,status,id,year,month,date){
     if(!appliable){
         if(status =="Pending" || status == "Cancel" || status =="Rejected"){
-            return `<p>Status: `+status+`</p>`;
+            return `<p class= "success-text">Status: `+status+`</p>`;
         }else if (status == "Approved"){
-            return `<p>Status: `+status+`</p><p><button class="btn btn-sm btn-primary btn_pay_now" id="pay_`+id+`">Pay Now</button></p>`;
+            return `<p class= "success-text">Status: `+status+`</p><p><button class="btn btn-sm btn-primary simple btn_pay_now" id="pay_`+id+`">Pay Now</button></p>`;
         }else if (status == "Accepted"){
             const today = new Date();
             if (today.getFullYear() <= year &&
                 today.getMonth() <= month &&
                 today.getDate() < date) {
-                    return `<p>Status: `+status+`</p><p><button class="btn btn-sm btn-primary btn_cancel_event" id="cancel_`+id+`">Cancel</button></p>`;
+                    return `<p class= "success-text">Status: `+status+`</p><p><button class="btn btn-sm btn-primary btn_cancel_event" id="cancel_`+id+`">Cancel</button></p>`;
               }
 
-              return `<p>Status: `+status+`</p>`;
+              return `<p class= "success-text">Status: `+status+`</p>`;
         }
 
     }
@@ -252,14 +252,18 @@ function logout(){
           if (!form.checkValidity()) {
             event.preventDefault()
             event.stopPropagation()
+            $('#myModal').modal('hide');
+
+          }else{
+            $('#myModal').modal('show');
+
           }
           var id =$(this).attr("id");
           if(id=="myForm"){
             event.preventDefault();
-            $('#myModal').modal('show');
+           
           }
 
-    
           form.classList.add('was-validated')
         }, false)
       })
